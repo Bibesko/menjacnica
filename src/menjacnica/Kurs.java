@@ -1,6 +1,6 @@
 package menjacnica;
 
-public class Kurs {
+public class Kurs extends Valute {
 
 	private double prodajniKurs;
 	private double srednjiKurs;

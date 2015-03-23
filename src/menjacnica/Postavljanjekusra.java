@@ -1,38 +1,60 @@
 package menjacnica;
 
 import java.util.GregorianCalendar;
+import java.util.LinkedList;
 
 import interfejsimenjacnice.Postavljanjekursa;
 
 public class Postavljanjekusra implements Postavljanjekursa {
 
-	private Kurs[] kursevi = new Kurs[10];
-	
-	@Override
+
+	private LinkedList <Kurs> kursevi = new LinkedList<Kurs>(); 
+
 	public void dodavanjeKursaValuteZaOdredjeniDan(double prodajniKurs,
 			double srednjiKurs, double kupovniKurs, String nazivValute,
 			String skraceniNazivValute, GregorianCalendar datum) {
 		
-		kursevi[1].setKupovniKurs(kupovniKurs);
-		kursevi[1].setProdajniKurs(prodajniKurs);
-		kursevi[1].setSrednjiKurs(srednjiKurs);
+
+		Kurs k = new Kurs();
 		
+		k.setProdajniKurs(prodajniKurs);
+		k.setNazivValute(nazivValute);
+		k.setSkraceniNazivValute(skraceniNazivValute);
+		k.setSrednjiKurs(srednjiKurs);
+		k.setKupovniKurs(kupovniKurs);
+		k.setG(datum);
+		
+		kursevi.add(k);
+
 	}
 
 	@Override
 	public void brisanjeKursaValuteZaOdredjeniDan(GregorianCalendar datum) {
-		kursevi[1].setKupovniKurs(0);
+
+		
+		for (int i = 0; i < kursevi.size();i++) {
+			if ( kursevi.get(i).getG() == datum) {
+				kursevi.remove(i);
+			}
+		}
+		
+		
 
 	}
 
 	@Override
 	public Kurs pronalazenjeKursaZaOdredjeniDan(GregorianCalendar datum) {
 		
-		for (int i = 0; i < kursevi.length; i++) {
-			kursevi[i].getKupovniKurs();
+
+		for (int i = 0; i < kursevi.size();i++) {
+			if ( kursevi.get(i).getG() == datum) {
+				return kursevi.get(i);
+			}
+
 		}
 		
 		return null;
+		
 	}
 
 }
