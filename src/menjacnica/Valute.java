@@ -1,6 +1,6 @@
 package menjacnica;
 
-public class Valute {
+public class Valute extends Datumpostavljanjakursa{
 	
 	private String nazivValute;
 	private String skraceniNazivValute;
