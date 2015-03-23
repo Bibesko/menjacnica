@@ -1,7 +1,7 @@
 package menjacnica;
 
 public class Valute {
-
+	
 	private String nazivValute;
 	private String skraceniNazivValute;
 	
