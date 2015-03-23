@@ -10,13 +10,23 @@ public class Valute {
 		return nazivValute;
 	}
 	public void setNazivValute(String nazivValute) {
-		this.nazivValute = nazivValute;
+		if ( !nazivValute.equals(null) ) {
+			this.nazivValute = nazivValute;
+		}
+		else {
+			throw new RuntimeException("Morate uneti naziv valute.");
+		}
 	}
 	public String getSkraceniNazivValute() {
 		return skraceniNazivValute;
 	}
 	public void setSkraceniNazivValute(String skraceniNazivValute) {
-		this.skraceniNazivValute = skraceniNazivValute;
+		if ( !skraceniNazivValute.equals(null) ) {
+			this.skraceniNazivValute = skraceniNazivValute;
+		}
+		else {
+			throw new RuntimeException("Morate uneti naziv valute.");
+		}
 	}
 	
 	
